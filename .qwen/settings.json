@@ -1,0 +1,113 @@
+{
+  "mcpServers": {
+    "figma-developer-mcp": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "figma-developer-mcp",
+        "--stdio"
+      ],
+      "env": {
+        "FIGMA_API_KEY": "${FIGMA_TOKEN}"
+      },
+      "type": "stdio",
+      "autoApprove": [
+        "get_figma_data",
+        "download_figma_images"
+      ],
+      "timeout": 60
+    },
+    "github": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "-e",
+        "GITHUB_PERSONAL_ACCESS_TOKEN",
+        "ghcr.io/github/github-mcp-server",
+        "stdio"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_TOKEN}"
+      }
+    },
+    "next-devtools": {
+      "command": "node",
+      "args": [
+        "node_modules/next-devtools-mcp/dist/index.js"
+      ],
+      "disabled": false,
+      "autoApprove": []
+    },
+    "chrome-devtools": {
+      "command": "npx",
+      "args": [
+        "chrome-devtools-mcp@latest"
+      ]
+    },
+    "terraform": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "-q",
+        "terraform-mcp-server"
+      ]
+    }
+  },
+  "permissions": {
+    "allow": [
+      "Bash(gh *)",
+      "Bash(sleep *)",
+      "WebFetch(github.com)",
+      "Bash(git checkout *)",
+      "Bash(find *)",
+      "Bash(npx *)",
+      "Bash(node *)",
+      "Agent(Explore)"
+    ]
+  },
+  "$version": 4,
+  "model": {
+    "name": "gemini-3.5-flash"
+  },
+  "modelProviders": {
+    "gemini": [
+      {
+        "id": "gemini-3.1-pro-preview",
+        "name": "Gemini 3.1 Pro Preview",
+        "envKey": "GEMINI_API_KEY",
+        "baseUrl": "https://generativelanguage.googleapis.com",
+        "capabilities": {
+          "vision": true
+        },
+        "generationConfig": {
+          "timeout": 60000,
+          "maxRetries": 3,
+          "contextWindowSize": 1000000,
+          "schemaCompliance": "auto"
+        }
+      },
+      {
+        "id": "gemini-3.5-flash",
+        "name": "Gemini 3.5 Flash",
+        "envKey": "GEMINI_API_KEY",
+        "baseUrl": "https://generativelanguage.googleapis.com",
+        "capabilities": {
+          "vision": true
+        },
+        "generationConfig": {
+          "timeout": 60000,
+          "maxRetries": 3,
+          "contextWindowSize": 1048576,
+          "schemaCompliance": "auto"
+        }
+      }
+    ]
+  },
+  "security": {
+    "auth": {
+      "selectedType": "gemini"
+    }
+  }
+}

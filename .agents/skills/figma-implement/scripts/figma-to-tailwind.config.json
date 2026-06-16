@@ -1,0 +1,56 @@
+{
+  "theme": {
+    "colors": {
+      "rgba(42,50,63,1)": {
+        "text": "grey-800",
+        "bg": "grey-800"
+      },
+      "rgba(122,137,161,1)": {
+        "text": "grey-500",
+        "bg": "grey-500"
+      },
+      "rgba(59,34,245,1)": {
+        "text": "white",
+        "bg": "dark-blue-500"
+      },
+      "rgba(237,235,255,1)": {
+        "text": "dark-blue-50",
+        "bg": "dark-blue-50"
+      },
+      "rgba(245,247,252,1)": {
+        "text": "grey-50",
+        "bg": "grey-50"
+      },
+      "rgba(32,38,48,1)": {
+        "text": "grey-900",
+        "bg": "grey-900"
+      },
+      "rgba(255,255,255,1)": {
+        "text": "white",
+        "bg": "white"
+      },
+      "rgba(70,70,97,1)": {
+        "text": "polite-purple-700",
+        "bg": "polite-purple-700"
+      },
+      "rgba(102,102,138,1)": {
+        "text": "polite-purple-600",
+        "bg": "polite-purple-600"
+      }
+    },
+    "typography": {
+      "fontFamilies": {
+        "Inter": "font-sans",
+        "Space Grotesk": "font-display",
+        "Plus Jakarta Sans": "font-sans"
+      }
+    },
+    "shadows": {
+      "hasShadow": "shadow-100"
+    }
+  },
+  "settings": {
+    "fallbackStrategy": "arbitrary",
+    "useCssVariables": false
+  }
+}
