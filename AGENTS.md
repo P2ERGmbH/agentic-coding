@@ -149,6 +149,9 @@ To ensure system stability and prevent resource leaks, agents must strictly mana
 - **Explicit Termination**: After using `chrome-devtools` or `next-devtools` for browser automation or testing, you **MUST** explicitly end the session using the corresponding `close` or `stop` action.
 - **Process Safety**: **NEVER** attempt to kill the Chrome process or any system-level browser process using `run_shell_command` (e.g., `pkill`, `killall`).
 - **Conflict Resolution**: If a browser session is busy, hung, or the MCP tool cannot terminate it gracefully, you **MUST** stop and ask the user to manually close the automated browser session. Do not attempt a forced system-level shutdown.
+- **Token-Efficient Batching via DevTools CLI (Fallback)**: When an agent encounters a highly repetitive, multi-step browser task (e.g., filling out massive forms, executing long user journeys) where individual step-by-step MCP tool calls become token-intensive or block progress, the agent **MUST** switch to CLI batching. 
+  - **Action**: Do NOT write custom automation scripts from scratch (e.g., Puppeteer or Playwright). Instead, use the native Chrome DevTools CLI persistence capabilities to record and batch the required browser actions.
+  - **Execution**: Run the generated batch sequence via the terminal (e.g., using `npx chrome-devtools-mcp`) to execute all browser actions in a single programmatic run, drastically reducing model-to-tool communication overhead.
 
 ## 🛠 Tool Usage Standards
 
