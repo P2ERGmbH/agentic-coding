@@ -141,7 +141,7 @@ To prevent port conflicts when running parallel agent tasks or automated tests:
    npx next dev -p <custom_port> --turbopack
    ```
    Or parameterize the Docker Compose setup to map the custom port to the host.
-2. **Chrome Test Target:** All automated browser testing (`chrome-devtools` MCP, Playwright, or Puppeteer) **MUST** target the exact custom port allocated to that specific agent instance (e.g., `http://localhost:<custom_port>`). Hardcoding default ports is strictly prohibited.
+2. **Chrome Test Target:** All automated browser testing (`chrome-devtools` MCP, Chrome DevTools CLI, or Playwright) **MUST** target the exact custom port allocated to that specific agent instance (e.g., `http://localhost:<custom_port>`). Hardcoding default ports is strictly prohibited.
 
 ## 🌐 Browser & DevTools Lifecycle
 

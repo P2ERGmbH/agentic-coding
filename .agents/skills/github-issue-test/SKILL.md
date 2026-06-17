@@ -88,6 +88,13 @@ Use this workflow whenever the user asks to "run the github-issue-test workflow,
 1.  **Manual Verification Instructions**: Provide the user with the exact click path on the target environment and the test credentials so they can verify it manually.
 2.  **Code Verification**: Perform a final review of the merged code changes to ensure logical correctness.
 
+### Scenario C: Token-Efficient Batch Execution (Chrome DevTools CLI)
+*If the click path is exceedingly long, highly repetitive, or step-by-step MCP tools hit token limits/timeouts:*
+
+1.  **Persist Actions via CLI**: Switch from individual step-by-step MCP tools to the native Chrome DevTools CLI. Instruct the DevTools CLI to persist the required browser actions into a batch script.
+2.  **Execute the Batch Sequence**: Run the generated sequence via the terminal (e.g., using `npx chrome-devtools-mcp`). This executes the entire multi-step browser flow (navigation, authentication, and validation) programmatically in one go.
+3.  **Capture Output**: Output the test results, success metrics, and any caught errors directly to the console for a token-efficient, single-turn verification.
+
 ---
 
 ## Phase 4: Reporting and Closure
