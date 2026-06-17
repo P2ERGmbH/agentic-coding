@@ -38,10 +38,10 @@ Use this workflow whenever the user asks to "run the review-performance workflow
     *   Wait for the page to visually stabilize.
     *   Use `performance_start_trace` with `reload: true` to begin capturing frontend performance issues, Core Web Vitals (LCP, INP, CLS), and page load speed.
 2.  **Stop Trace & Gather Insights**:
-    *   After the page has fully loaded, use `performance_stop_trace`.
-    *   Analyze the generated trace file. Look for specific Performance Insights returned by the DevTools.
-    *   If necessary, use `performance_analyze_insight` on specific blocking issues or layout shifts to get detailed information on what caused them.
-    *   Alternatively, use `lighthouse_audit` to get a structured report on best practices if tracing does not provide obvious blocking issues.
+    * After the page has fully loaded, use `performance_stop_trace`.
+    * Analyze the generated trace file. Look for specific Performance Insights returned by the DevTools.
+    * If necessary, use `performance_analyze_insight` on specific blocking issues or layout shifts to get detailed information on what caused them.
+    * **Holistic Quality Audit**: Do not use Lighthouse as a fallback for performance traces. Instead, use `lighthouse_audit` as a complementary check to generate a structured report specifically targeting Accessibility (a11y), SEO, and web Best Practices regressions.
 
 ---
 
